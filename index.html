@@ -99,11 +99,11 @@
         <div class="grid">
             <div class="card">
                 <h3>ISO GPS</h3>
-                <p>Customized on-site corporate workshops focused entirely on Geometric Product Specification and Verification. Eliminate drawing misinterpretations, optimize tolerances, and minimize manufacturing scrap rates.</p>
+                <p>Customized on-site corporate workshops focused entirely on Geometric Product Specification and Verification. Eliminate drawing misinterpretations and reduce discussions with your suppliers and customers.</p>
             </div>
             <div class="card">
                 <h3>Catia V5</h3>
-                <p>Professional methodological training tailored to your engineering department. From robust parameterization setups to advanced surface architectures and assembly kinematics optimization.</p>
+                <p>Professional methodological training tailored to your engineering department. From basics in part and assembly design to advanced surface modelling and parameterization.</p>
             </div>
             <div class="card">
                 <h3>Structured Innovation Methodologies</h3>
@@ -122,7 +122,12 @@
 
             <form action="https://formspree.io/f/your_formspree_id" method="POST">
                 <div class="form-group">
-                    <label for="company">Company Name</label>
+                    <label for="company">First and Last Name</label>
+                    <input type="text" id="company" name="company" class="form-control" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company</label>
                     <input type="text" id="company" name="company" class="form-control" placeholder="e.g. Manufacturing GmbH" required>
                 </div>
 
@@ -134,11 +139,11 @@
                 <div class="form-group">
                     <label for="service">Primary Area of Interest</label>
                     <select id="service" name="service" class="form-control">
-                        <option value="ISO GPS Training">ISO GPS Worksite Training</option>
-                        <option value="Catia V5 Training">Catia V5 Expert Training</option>
-                        <option value="Structured Innovation">Structured Innovation Methodologies</option>
+                        <option value="ISO GPS Training">On-Site ISO GPS Training</option>
+                        <option value="Catia V5 Training">On-Site Catia V5 Training</option>
+                        <option value="Structured Innovation">On-Site Structured Innovation Methodologies Workshop</option>
                         <option value="3D CAD & FEM">3D Design Services & FEM Analysis</option>
-                        <option value="Technical Documentation">Technical Documentation Audits</option>
+                        <option value="Technical Documentation">Technical Documentation Creation Support and Audits</option>
                         <option value="General Technical Consulting">General Technical Consulting</option>
                     </select>
                 </div>
