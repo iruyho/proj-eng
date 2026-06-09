@@ -5,63 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Consulting & Engineering Services</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
-        header { background: #2c3e50; color: #fff; padding: 20px 0; border-bottom: 3px solid #3498db; }
-        .container { width: 80%; max-width: 1100px; margin: auto; overflow: hidden; padding: 0 20px; }
+        /* Global Styles */
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f8f9fa; }
+        .container { width: 90%; max-width: 1100px; margin: auto; overflow: hidden; padding: 0 20px; }
+        
+        /* Header & Navigation */
+        header { background: #2c3e50; color: #fff; padding: 20px 0; border-bottom: 3px solid #3498db; sticky; position: top; }
+        .logo { float: left; font-size: 24px; font-weight: bold; letter-spacing: 1px; }
+        .logo span { color: #3498db; font-size: 14px; font-weight: normal; margin-left: 10px; vertical-align: middle; }
         nav { float: right; margin-top: 10px; }
-        nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; font-size: 14px; }
         nav a:hover { color: #3498db; }
-        .logo { float: left; font-size: 24px; font-weight: bold; }
-        .hero { background: #f4f6f7; padding: 60px 0; text-align: center; }
-        .hero h1 { margin-0; color: #2c3e50; }
-        .services { padding: 40px 0; display: flex; justify-content: space-between; gap: 20px; }
-        .card { flex: 1; background: #fff; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card h3 { color: #2c3e50; margin-top: 0; }
-        footer { background: #2c3e50; color: #fff; text-align: center; padding: 20px 0; margin-top: 40px; font-size: 14px; }
+        
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 70px 0; text-align: center; }
+        .hero h1 { margin: 0 0 15px 0; font-size: 36px; }
+        .hero p { margin: 0; font-size: 18px; color: #bdc3c7; }
+        
+        /* Section Headings */
+        .section-title { text-align: center; margin-top: 50px; margin-bottom: 30px; font-size: 28px; color: #2c3e50; position: relative; padding-bottom: 10px; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: #3498db; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        
+        /* Service Grid (3 Columns) */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300deg, 1fr)); gap: 25px; margin-bottom: 40px; }
+        @media(min-width: 768px) {
+            .grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        /* Tile Cards */
+        .card { background: #fff; padding: 30px; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #2c3e50; transition: transform 0.2s ease; }
+        .card:hover { transform: translateY(-5px); border-top-color: #3498db; }
+        .card h3 { color: #2c3e50; margin-top: 0; font-size: 20px; }
+        .card p { color: #666; font-size: 15px; }
+        
+        /* Contact Form Section */
+        .contact-section { background: #fff; padding: 50px 0; border-top: 1px solid #e0e0e0; margin-top: 60px; }
+        .contact-container { max-width: 700px; margin: auto; }
+        .b2b-notice { background: #e8f4fd; border-left: 4px solid #3498db; padding: 15px; margin-bottom: 30px; border-radius: 4px; font-size: 14px; color: #2c3e50; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #2c3e50; font-size: 14px; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 15px; }
+        .form-control:focus { outline: none; border-color: #3498db; }
+        textarea.form-control { height: 150px; resize: vertical; }
+        
+        .btn-submit { background: #3498db; color: white; padding: 14px 28px; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.2s ease; }
+        .btn-submit:hover { background: #2980b9; }
+        
+        /* Footer */
+        footer { background: #2c3e50; color: #fff; text-align: center; padding: 25px 0; font-size: 14px; }
     </style>
 </head>
 <body>
+
     <header>
         <div class="container">
-            <div class="logo">ENGINEERING PARTNER</div>
+            <div class="logo">METHATECH <span>| Industrial Intelligence</span></div>
             <nav>
-                <a href="index.html">Home</a>
-                <a href="training.html">GPSV Training</a>
-                <a href="modeling.html">3D CAD & Docs</a>
-                <a href="portfolio.html">Case Studies</a>
+                <a href="#engineering">Engineering Services</a>
+                <a href="#training">Training Services</a>
+                <a href="#contact">Request Quotation</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Precision Engineering Consulting & Training</h1>
-            <p>Optimizing manufacturing workflows, geometrical specifications, and product data cycles across the DACH region.</p>
+            <h1>Precision Engineering Consulting & Workforce Training</h1>
+            <p>Optimizing mechanical workflows, 3D definitions, and systematic product lifecycles.</p>
         </div>
     </section>
 
-    <section class="container">
-        <div class="services">
-            <div class="card">
-                <h3>GPSV Expert Training</h3>
-                <p>Customized on-site workshops focused on ISO-GPS standards, dimensional tolerancing, and verification to cut down production errors and scrap rates.</p>
-                <a href="training.html">Learn More &raquo;</a>
-            </div>
-            <div class="card">
-                <h3>3D Modeling & CAD</h3>
-                <p>High-precision 3D modeling and design services to absorb your peak engineering capacity bottlenecks seamlessly.</p>
-                <a href="modeling.html">Learn More &raquo;</a>
-            </div>
+    <main class="container" id="engineering">
+        <h2 class="section-title">Engineering Services</h2>
+        <div class="grid">
             <div class="card">
                 <h3>Technical Documentation</h3>
-                <p>Systematic generation and auditing of complex technical document structures, standard operating guidelines, and lifecycle data.</p>
-                <a href="modeling.html">Learn More &raquo;</a>
+                <p>Systematic structuring, compilation, and auditing of technical product data, compliance declarations, operation directives, and engineering change logs to international standards.</p>
             </div>
+            <div class="card">
+                <h3>3D Design Services & FEM Analysis</h3>
+                <p>Advanced solid and surfacing modeling execution to absorb peak capacity bottlenecks. Structural evaluation utilizing finite element mapping to ensure physical integrity and mass optimization.</p>
+            </div>
+            <div class="card">
+                <h3>Technical Consulting</h3>
+                <p>Strategic structural analysis of existing engineering workflows. Providing data-driven optimization strategies for CAD methodologies, layout design chains, and cross-departmental project execution.</p>
+            </div>
+        </div>
+    </main>
+
+    <section class="container" id="training">
+        <h2 class="section-title">Training Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>ISO GPS</h3>
+                <p>Customized on-site corporate workshops focused entirely on Geometric Product Specification and Verification. Eliminate drawing misinterpretations, optimize tolerances, and minimize manufacturing scrap rates.</p>
+            </div>
+            <div class="card">
+                <h3>Catia V5</h3>
+                <p>Professional methodological training tailored to your engineering department. From robust parameterization setups to advanced surface architectures and assembly kinematics optimization.</p>
+            </div>
+            <div class="card">
+                <h3>Structured Innovation Methodologies</h3>
+                <p>Methodical workshops applying rigorous, rule-based creative frameworks to complex design bottlenecks. Solve tracking mechanical constraints and accelerate product generation phases systematically.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container contact-container">
+            <h2 class="section-title" style="margin-top: 0;">Request for Quotation</h2>
+            
+            <div class="b2b-notice">
+                <strong>🔒 IP & Data Protection Notice:</strong> To protect your proprietary intellectual property, please use this form to outline your initial requirements. For the secure exchange of CAD native files, drawings, or product briefs, we will immediately provide a secure data transmission channel or formalize a standard Non-Disclosure Agreement (NDA) upon receipt of this inquiry.
+            </div>
+
+            <form action="https://formspree.io/f/your_formspree_id" method="POST">
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company" class="form-control" placeholder="e.g. Manufacturing GmbH" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Corporate Email Address</label>
+                    <input type="email" id="email" name="_replyto" class="form-control" placeholder="name@company.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Primary Area of Interest</label>
+                    <select id="service" name="service" class="form-control">
+                        <option value="ISO GPS Training">ISO GPS Worksite Training</option>
+                        <option value="Catia V5 Training">Catia V5 Expert Training</option>
+                        <option value="Structured Innovation">Structured Innovation Methodologies</option>
+                        <option value="3D CAD & FEM">3D Design Services & FEM Analysis</option>
+                        <option value="Technical Documentation">Technical Documentation Audits</option>
+                        <option value="General Technical Consulting">General Technical Consulting</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Project Scope / Group Size / Requirements</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Please outline your technical challenges, engineering capacity shortage, or desired training timeline..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Secure Request</button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Engineering Partner. All rights reserved. Industrial Quality & Consulting.</p>
+        <p>&copy; 2026 Engineering Technical Partner. All rights reserved. Industrial Quality & Consulting Across the DACH Region.</p>
     </footer>
+
 </body>
 </html>
