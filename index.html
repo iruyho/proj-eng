@@ -122,12 +122,7 @@
 
             <form action="https://formspree.io/f/your_formspree_id" method="POST">
                 <div class="form-group">
-                    <label for="company">First and Last Name</label>
-                    <input type="text" id="company" name="company" class="form-control" placeholder="John Doe" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="company">Company</label>
+                    <label for="company">Company Name</label>
                     <input type="text" id="company" name="company" class="form-control" placeholder="e.g. Manufacturing GmbH" required>
                 </div>
 
@@ -138,19 +133,19 @@
 
                 <div class="form-group">
                     <label for="service">Primary Area of Interest</label>
-                    <select id="service" name="service" class="form-control">
-                        <option value="ISO GPS Training">On-Site ISO GPS Training</option>
-                        <option value="Catia V5 Training">On-Site Catia V5 Training</option>
-                        <option value="Structured Innovation">On-Site Structured Innovation Methodologies Workshop</option>
+                    <select id="serviceSelect" name="service" class="form-control">
+                        <option value="ISO GPS Training">ISO GPS Worksite Training</option>
+                        <option value="Catia V5 Training">Catia V5 Expert Training</option>
+                        <option value="Structured Innovation">Structured Innovation Methodologies</option>
                         <option value="3D CAD & FEM">3D Design Services & FEM Analysis</option>
-                        <option value="Technical Documentation">Technical Documentation Creation Support and Audits</option>
+                        <option value="Technical Documentation">Technical Documentation Audits</option>
                         <option value="General Technical Consulting">General Technical Consulting</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Project Scope / Group Size / Requirements</label>
-                    <textarea id="message" name="message" class="form-control" placeholder="Please outline your technical challenges, engineering capacity shortage, or desired training timeline..." required></textarea>
+                    <label for="message">Project Scope / Details</label>
+                    <textarea id="messageBox" name="message" class="form-control" required></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">Submit Secure Request</button>
@@ -161,6 +156,37 @@
     <footer>
         <p>&copy; 2026 Engineering Technical Partner. All rights reserved. Industrial Quality & Consulting Across the DACH Region.</p>
     </footer>
+
+    <script>
+        const serviceSelect = document.getElementById('serviceSelect');
+        const messageBox = document.getElementById('messageBox');
+
+        // Mapping dropdown selections to custom professional placeholders
+        const placeholders = {
+            'ISO GPS Training': 'Please outline your training requirements (e.g., target group size, current drawing pain points, focus on specific standards like ISO 1101, preferred dates for an on-site workshop)...',
+            
+            'Catia V5 Training': 'Please describe your team\'s current CAD level (e.g., beginners, advanced solid modelers, sheet metal or surfacing focus, specific target workflows or release versions)...',
+            
+            'Structured Innovation': 'Please briefly outline the type of engineering bottlenecks or product generation constraints your team is trying to solve methodically...',
+            
+            '3D CAD & FEM': 'Please describe the scope of design support needed (e.g., peak capacity buffering, component modeling, assembly constraints, or specific loading scenarios/materials for finite element analysis)...',
+            
+            'Technical Documentation': 'Please outline the types of data structures or manuals requiring audit (e.g., operating guidelines, machinery safety declarations, change log tracking, or standard operating procedure compliance)...',
+            
+            'General Technical Consulting': 'Please briefly describe your current cross-departmental or engineering workflow challenges, and what clear optimization outcomes you are aiming to achieve...'
+        };
+
+        function updatePlaceholder() {
+            const selectedValue = serviceSelect.value;
+            messageBox.placeholder = placeholders[selectedValue] || 'Please outline your technical challenges, engineering capacity shortage, or desired training timeline...';
+        }
+
+        // Run once on load to set the initial default placeholder
+        updatePlaceholder();
+
+        // Listen for user changes on the dropdown menu
+        serviceSelect.addEventListener('change', updatePlaceholder);
+    </script>
 
 </body>
 </html>
